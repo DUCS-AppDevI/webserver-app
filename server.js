@@ -5,23 +5,6 @@
 
 const express = require("express")
 
-//const quotes = require("./data/quotes.js")
-
-// declare the data to be used
-// Actually, you never want to include data this way!
-const data = [
-  {quote:'The programmer, like the poet, works only slightly removed from pure thought-stuff. He builds his castles in the air, from air, creating by exertion of the imagination. Few media of creation are so flexible, so easy to polish and rework, so readily capable of realizing grand conceptual structures.',
-   author:'Fred Brooks'},
-  {quote: 'Brooks Law: Adding manpower to a late software project makes it later!',
-   author: 'Fred Brooks'},
-  {quote: 'Plan to throw one (implementation) away; you will, anyhow.',
-   author: 'Fred Brooks'},
-  {quote: 'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
-   author: 'Martin Fowler'},
-  {quote: 'Program testing can be used to show the presence of bugs, but never to show their absence!',
-   author: 'Edsger Dijkstra'}
-]
-
 // Declare the port
 const PORT = 3000
 
@@ -44,13 +27,6 @@ app.use(logRequest)
 // This route is executed as: localhost:3000/hello
 app.get("/hello", (req, res) => {
     res.send("<h1>Hello world!</h1>")
-})
-
-// define a route to retrieve a quote
-app.get("/getQuote", (req, res) => {
-  let qNum = parseInt(req.query.quote_num)
-  let qt = data[qNum]
-  res.json(qt)
 })
 
 // create a listener on the specified port
